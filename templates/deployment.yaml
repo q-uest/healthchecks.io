@@ -33,6 +33,15 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: [ "bash" ]
+          args: ["-c",'echo ALLOWED_HOSTS=$ALLOWED_HOSTS; uwsgi /opt/healthchecks/docker/uwsgi.ini']
+          envFrom:
+          - configMapRef:
+              name:  {{ .Values.configmap }}
+          {{- if .Values.imagePullSecrets }}
+          imagePullSecrets:
+            - name: {{ .Values.imagePullSecrets }}
+          {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
