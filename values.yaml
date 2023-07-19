@@ -84,17 +84,17 @@ affinity: {}
 configmap: hc-env-cm
 
 envvars:
-  ALLOWED_HOSTS: 52.201.233.203
+  ALLOWED_HOSTS: 54.89.20.187
   APPRISE_ENABLED: "False"
-  DB: postgres
+  DB: mysql
   DB_CONN_MAX_AGE: "0"
-  DB_HOST: pgrel1-postgresql
+  DB_HOST: mysql-rel1.default.svc.cluster.local
   DB_NAME: hc
-  DB_PASSWORD: password
-  DB_PORT: "5432"
+  DB_PASSWORD: y2ckb2JTkA
+  DB_PORT: "3306"
   DB_SSLMODE: prefer
   DB_TARGET_SESSION_ATTRS: read-write
-  DB_USER: postgres
+  DB_USER: root
   DEBUG: "False"
   DEFAULT_FROM_EMAIL: healthchecks@example.org
   DISCORD_CLIENT_ID: ""
